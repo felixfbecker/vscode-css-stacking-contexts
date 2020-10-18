@@ -3,8 +3,12 @@
   "publisher": "felixfbecker",
   "displayName": "CSS Stacking Contexts",
   "description": "Highlights stacking contexts in CSS and ineffective z-index declarations.",
+  "icon": "images/icon.png",
   "version": "1.0.0",
   "license": "MIT",
+  "files": [
+    "out"
+  ],
   "engines": {
     "vscode": "^1.50.0"
   },
