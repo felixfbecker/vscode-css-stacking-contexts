@@ -18,6 +18,7 @@
 }
 
 .example5 {
+    display: block;
     z-index: 2;
 }
 
