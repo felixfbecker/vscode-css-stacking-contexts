@@ -1,6 +1,6 @@
 import * as vscode from 'vscode'
 import * as postscss from 'postcss-scss'
-import { debounce } from 'lodash'
+import debounce from 'lodash.debounce'
 import dedent from 'dedent'
 import { establishesStackingContext, isIneffectiveZIndexDeclaration } from './css'
 import { eol, nodeRange } from './vscode-helpers'
