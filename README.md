@@ -1,4 +1,4 @@
-# VS Code CSS Stacking Contexts
+# VS Code CSS Stacking Contexts [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/felixfbecker.css-stacking-contexts)](https://marketplace.visualstudio.com/items?itemName=felixfbecker.css-stacking-contexts)
 
 > The problem with z-index is that very few people understand how it really works. It’s not complicated, but it if you’ve never taken the time to read its specification, there are almost certainly crucial aspects that you’re completely unaware of.
 >
