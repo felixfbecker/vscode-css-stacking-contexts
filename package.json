@@ -3,6 +3,7 @@
   "displayName": "CSS Stacking Contexts",
   "description": "Highlights stacking contexts in CSS and ineffective z-index declarations.",
   "version": "0.0.1",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.50.0"
   },
@@ -18,12 +19,10 @@
   "contributes": {},
   "prettier": "@sourcegraph/prettierrc",
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "lint": "eslint src --ext ts",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "test": "node ./out/test/runTest.js"
+    "vscode:prepublish": "npm run build",
+    "build": "tsc -p ./",
+    "eslint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
     "@sourcegraph/eslint-config": "^0.20.11",
