@@ -2,7 +2,7 @@
   "name": "css-stacking-contexts",
   "displayName": "CSS Stacking Contexts",
   "description": "Highlights stacking contexts in CSS and ineffective z-index declarations.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "engines": {
     "vscode": "^1.50.0"
