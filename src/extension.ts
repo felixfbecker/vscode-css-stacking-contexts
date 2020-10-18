@@ -22,6 +22,13 @@ const ruleHighlightDecorationType = vscode.window.createTextEditorDecorationType
     rangeBehavior: vscode.DecorationRangeBehavior.ClosedOpen,
 })
 
+function documentFilePath(textDocument: vscode.TextDocument): string {
+    if (textDocument.uri.scheme === 'git') {
+        return textDocument.uri.fsPath.replace(/\.git$/, '')
+    }
+    return textDocument.uri.fsPath
+}
+
 export function activate(context: vscode.ExtensionContext): void {
     const output = vscode.window.createOutputChannel('CSS Stacking Contexts')
 
@@ -76,6 +83,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
                 diagnosticCollection.set(editor.document.uri, diagnostics)
             } catch (error) {
+                console.error(error)
                 output.append(error?.message)
             }
         }
@@ -98,13 +106,18 @@ export function activate(context: vscode.ExtensionContext): void {
     )
     context.subscriptions.push(
         vscode.workspace.onDidOpenTextDocument(document => {
-            const editors = vscode.window.visibleTextEditors.filter(editor => editor.document === document)
+            console.log('onDidOpen', document.uri.toString())
+            const editors = vscode.window.visibleTextEditors.filter(
+                editor => documentFilePath(editor.document) === documentFilePath(document)
+            )
             debouncedDecorate(editors)
         })
     )
     context.subscriptions.push(
         vscode.workspace.onDidChangeTextDocument(event => {
-            const editors = vscode.window.visibleTextEditors.filter(editor => editor.document === event.document)
+            const editors = vscode.window.visibleTextEditors.filter(
+                editor => documentFilePath(editor.document) === documentFilePath(event.document)
+            )
             debouncedDecorate(editors)
         })
     )
