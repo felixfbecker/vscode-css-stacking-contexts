@@ -13,3 +13,5 @@ This extension makes [Stacking Contexts](https://developer.mozilla.org/en-US/doc
 ![Screenshot](images/screenshot1.png)
 
 Additionally, it will tell you when a `z-index` declaration has no effect, and offer automatic quick fixes.
+
+![Ineffective z-index demo](images/ineffective-z-index.gif)
