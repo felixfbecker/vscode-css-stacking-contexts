@@ -90,6 +90,13 @@ export function activate(context: vscode.ExtensionContext): void {
         })
     )
     context.subscriptions.push(
+        vscode.window.onDidChangeActiveTextEditor(editor => {
+            if (editor) {
+                debouncedDecorate([editor])
+            }
+        })
+    )
+    context.subscriptions.push(
         vscode.workspace.onDidOpenTextDocument(document => {
             const editors = vscode.window.visibleTextEditors.filter(editor => editor.document === document)
             debouncedDecorate(editors)
