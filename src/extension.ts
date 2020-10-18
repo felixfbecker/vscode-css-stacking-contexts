@@ -85,6 +85,11 @@ export function activate(context: vscode.ExtensionContext): void {
     // Decorate whenever documents are opened or changed
     debouncedDecorate(vscode.window.visibleTextEditors)
     context.subscriptions.push(
+        vscode.window.onDidChangeVisibleTextEditors(editors => {
+            debouncedDecorate(editors)
+        })
+    )
+    context.subscriptions.push(
         vscode.workspace.onDidOpenTextDocument(document => {
             const editors = vscode.window.visibleTextEditors.filter(editor => editor.document === document)
             debouncedDecorate(editors)
