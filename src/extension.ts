@@ -53,7 +53,10 @@ export function activate(context: vscode.ExtensionContext): void {
                     if (establishesStackingContext(declaration)) {
                         propertyRanges.push(nodeRange(declaration))
                         if (declaration.parent) {
-                            ruleRanges.push(nodeRange(declaration.parent))
+                            const parentRange = nodeRange(declaration.parent)
+                            if (!ruleRanges.some(range => range.isEqual(parentRange))) {
+                                ruleRanges.push(parentRange)
+                            }
                         }
                     }
                     if (isIneffectiveZIndexDeclaration(declaration)) {
