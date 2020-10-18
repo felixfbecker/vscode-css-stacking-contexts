@@ -11,8 +11,7 @@
   ],
   "activationEvents": [
     "onLanguage:css",
-    "onLanguage:scss",
-    "onLanguage:less"
+    "onLanguage:scss"
   ],
   "main": "./out/extension.js",
   "contributes": {},
@@ -36,10 +35,12 @@
     "vscode-test": "^1.4.0",
     "@sourcegraph/prettierrc": "^3.0.3",
     "@sourcegraph/eslint-config": "^0.20.11",
-    "@sourcegraph/tsconfig": "^4.0.1"
+    "@sourcegraph/tsconfig": "^4.0.1",
+    "@types/lodash": "^4.14.162"
   },
   "dependencies": {
-    "scss-tokenizer": "^0.4.2",
-    "rxjs": "^6.6.3"
+    "postcss": "^8.1.1",
+    "postcss-scss": "^3.0.2",
+    "lodash": "^4.17.20"
   }
 }
