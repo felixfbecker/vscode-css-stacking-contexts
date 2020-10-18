@@ -149,10 +149,10 @@ export function activate(context: vscode.ExtensionContext): void {
                         new vscode.MarkdownString(
                             dedent`
                                 This property introduces a new stacking context.
-                                This means all \`z-index\` declarations of descendants of this element will be
-                                independent of \`z-index\` declarations of other elements on the page.
+                                This means all \`z-index\` declarations for descendants of this element will be
+                                independent of \`z-index\` declarations for other elements on the page.
 
-                                The element itself will be positioned as one atomic unit inside the parent stacking context.
+                                The element itself will be positioned as one atomic unit on the z-axis inside the parent stacking context.
 
                                 [Learn more on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
                             `
