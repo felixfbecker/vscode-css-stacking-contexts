@@ -10,6 +10,6 @@
 
 This extension makes [Stacking Contexts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) **visible** in CSS and SCSS, allowing you to write `z-index` declarations using small values _with confidence_.
 
-![Screenshot](./images/screenshot1.png)
+![Screenshot](images/screenshot1.png)
 
 Additionally, it will tell you when a `z-index` declaration has no effect, and offer automatic quick fixes.
