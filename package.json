@@ -1,13 +1,14 @@
 {
-  "name": "css-stacking-context-highlighter",
-  "displayName": "CSS Stacking Context Highlighter",
-  "description": "Highlight properties in CSS that introduce new stacking contexts",
+  "name": "css-stacking-contexts",
+  "displayName": "CSS Stacking Contexts",
+  "description": "Highlights stacking contexts in CSS and ineffective z-index declarations.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.50.0"
   },
   "categories": [
-    "Other"
+    "Linters",
+    "Programming Languages"
   ],
   "activationEvents": [
     "onLanguage:css",
@@ -36,11 +37,13 @@
     "@sourcegraph/prettierrc": "^3.0.3",
     "@sourcegraph/eslint-config": "^0.20.11",
     "@sourcegraph/tsconfig": "^4.0.1",
-    "@types/lodash": "^4.14.162"
+    "@types/lodash": "^4.14.162",
+    "@types/dedent": "^0.7.0"
   },
   "dependencies": {
     "postcss": "^8.1.1",
     "postcss-scss": "^3.0.2",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.20",
+    "dedent": "^0.7.0"
   }
 }
