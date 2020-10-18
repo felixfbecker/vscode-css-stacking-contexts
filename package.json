@@ -1,11 +1,16 @@
 {
   "name": "css-stacking-contexts",
+  "publisher": "felixfbecker",
   "displayName": "CSS Stacking Contexts",
   "description": "Highlights stacking contexts in CSS and ineffective z-index declarations.",
   "version": "1.0.0",
   "license": "MIT",
   "engines": {
     "vscode": "^1.50.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felixfbecker/vscode-css-stacking-contexts"
   },
   "categories": [
     "Linters",
