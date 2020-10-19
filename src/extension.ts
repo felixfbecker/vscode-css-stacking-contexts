@@ -177,22 +177,57 @@ export function activate(context: vscode.ExtensionContext): void {
                 if (!diagnostic) {
                     return null
                 }
-                const isolationAction = new vscode.CodeAction(
-                    'Create a stacking context using `isolation: isolate`',
-                    vscode.CodeActionKind.QuickFix.append('addIsolationIsolate')
-                )
-                isolationAction.diagnostics = [diagnostic]
-                isolationAction.edit = new vscode.WorkspaceEdit()
-                const indentation = textDocument.getText(
-                    new vscode.Range(diagnostic.range.start.with({ character: 0 }), diagnostic.range.start)
-                )
-                isolationAction.edit.insert(
-                    textDocument.uri,
-                    diagnostic.range.start,
-                    'isolation: isolate;' + eol(textDocument) + indentation
-                )
-                return [isolationAction]
+                return [
+                    createAddIsolationIsolateAction(diagnostic, textDocument),
+                    createRemoveZIndexAction(diagnostic, textDocument),
+                ]
             },
         })
     )
+}
+
+function createAddIsolationIsolateAction(
+    diagnostic: vscode.Diagnostic,
+    textDocument: vscode.TextDocument
+): vscode.CodeAction {
+    const isolationAction = new vscode.CodeAction(
+        'Create a stacking context using `isolation: isolate`',
+        vscode.CodeActionKind.QuickFix.append('addIsolationIsolate')
+    )
+    isolationAction.diagnostics = [diagnostic]
+    isolationAction.edit = new vscode.WorkspaceEdit()
+    const indentation = textDocument.getText(
+        new vscode.Range(diagnostic.range.start.with({ character: 0 }), diagnostic.range.start)
+    )
+    isolationAction.edit.insert(
+        textDocument.uri,
+        diagnostic.range.start,
+        'isolation: isolate;' + eol(textDocument) + indentation
+    )
+    return isolationAction
+}
+
+function createRemoveZIndexAction(diagnostic: vscode.Diagnostic, textDocument: vscode.TextDocument): vscode.CodeAction {
+    const action = new vscode.CodeAction(
+        'Remove `z-index` declaration',
+        vscode.CodeActionKind.QuickFix.append('removeZIndex')
+    )
+    action.diagnostics = [diagnostic]
+    action.edit = new vscode.WorkspaceEdit()
+    let removeRange = diagnostic.range
+    if (textDocument.getText(new vscode.Range(diagnostic.range.end, diagnostic.range.end.translate(0, 1))) === ';') {
+        removeRange = removeRange.with({ end: removeRange.end.translate(0, 1) })
+    }
+    // Remove indentation
+    if (
+        textDocument
+            .getText(new vscode.Range(diagnostic.range.start.with({ character: 0 }), diagnostic.range.start))
+            .trim() === ''
+    ) {
+        removeRange = removeRange.with({
+            start: diagnostic.range.start.with({ character: 0 }),
+        })
+    }
+    action.edit.delete(textDocument.uri, removeRange)
+    return action
 }
