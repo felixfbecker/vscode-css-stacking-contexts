@@ -15,7 +15,7 @@ const stackingContextEstablishingProperties = new Set<string>([
     'perspective',
     'position',
     'transform',
-    'webkit-overflow-scrolling',
+    '-webkit-overflow-scrolling',
     'z-index',
 ])
 const flexAndGridChildProperties = new Set<string>([
