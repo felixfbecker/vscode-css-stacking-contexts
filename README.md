@@ -11,11 +11,15 @@
 This extension makes [Stacking Contexts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) **visible** in CSS and SCSS, allowing you to write `z-index` declarations using small values _with confidence_.
 
 <picture>
-<source srcset="https://raw.githubusercontent.com/felixfbecker/vscode-css-stacking-contexts/main/images/screenshot1_light.png" media="(prefers-color-scheme: light)" />
 <source srcset="https://raw.githubusercontent.com/felixfbecker/vscode-css-stacking-contexts/main/images/screenshot1.png" media="(prefers-color-scheme: dark)" />
-<img alt="Screenshot" src="https://raw.githubusercontent.com/felixfbecker/vscode-css-stacking-contexts/main/images/screenshot1.png" />
+<source srcset="https://raw.githubusercontent.com/felixfbecker/vscode-css-stacking-contexts/main/images/screenshot1_light.png" media="(prefers-color-scheme: light)" />
+<img alt="Screenshot" src="https://raw.githubusercontent.com/felixfbecker/vscode-css-stacking-contexts/main/images/screenshot1_light.png" />
 </picture>
 
 Additionally, it will tell you when a `z-index` declaration has no effect, and offer automatic quick fixes.
 
-![Ineffective z-index demo](https://raw.githubusercontent.com/felixfbecker/vscode-css-stacking-contexts/main/images/ineffective-z-index.gif)
+<picture>
+<source srcset="https://raw.githubusercontent.com/felixfbecker/vscode-css-stacking-contexts/main/images/ineffective-z-index.gif" media="(prefers-color-scheme: dark)" />
+<source srcset="https://raw.githubusercontent.com/felixfbecker/vscode-css-stacking-contexts/main/images/ineffective-z-index_light.gif" media="(prefers-color-scheme: light)" />
+<img alt="Ineffective z-index demo" src="https://raw.githubusercontent.com/felixfbecker/vscode-css-stacking-contexts/main/images/ineffective-z-index_light.gif" />
+</picture>
