@@ -129,25 +129,25 @@ export function activate(context: vscode.ExtensionContext): void {
     context.subscriptions.push(
         vscode.languages.registerHoverProvider(DOCUMENT_SELECTOR, {
             provideHover: (textDocument, position) => {
-                const hoverWasAfterEol = !textDocument.validateRange(
+                const hoverWasAfterEol = textDocument.validateRange(
                     new vscode.Range(position, position.translate(0, 1))
                 ).isEmpty
-                const ruleRanges = allRuleRanges.get(textDocument.uri.toString())
-                if (!ruleRanges) {
+                const propertyRanges = allPropertyRanges.get(textDocument.uri.toString())
+                if (!propertyRanges) {
                     return null
                 }
                 // Check that hover was on a line with a "This property introduces a new stacking context" decoration
-                if (
-                    !ruleRanges.some(
-                        range =>
-                            range.contains(position) ||
-                            (hoverWasAfterEol && range.start.line <= position.line && position.line <= range.end.line)
-                    )
-                ) {
+                const propertyRange = propertyRanges.find(
+                    range =>
+                        range.contains(position) ||
+                        (hoverWasAfterEol && range.start.line <= position.line && position.line <= range.end.line)
+                )
+                if (!propertyRange) {
                     return null
                 }
 
                 return {
+                    range: propertyRange,
                     contents: [
                         new vscode.MarkdownString(
                             dedent`
