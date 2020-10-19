@@ -51,7 +51,7 @@ export function establishesStackingContext(declaration: Declaration): boolean {
                         flexAndGridChildProperties.has(child.prop))
             )) ||
             (declaration.prop === 'position' && (declaration.value === 'fixed' || declaration.value === 'sticky')) ||
-            (declaration.prop === 'opacity' && declaration.value !== '1') ||
+            (declaration.prop === 'opacity' && parseFloat(declaration.value) !== 1) ||
             (declaration.prop === 'mix-blend-mode' && declaration.value !== 'normal') ||
             (declaration.prop === 'transform' && declaration.value !== 'none') ||
             (declaration.prop === 'filter' && declaration.value !== 'none') ||
