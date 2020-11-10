@@ -91,7 +91,7 @@ export function activate(context: vscode.ExtensionContext): void {
             }
         }
     }
-    const debouncedDecorate = debounce(decorate, 300, { maxWait: 600 })
+    const debouncedDecorate = debounce(decorate, 600, { maxWait: 1500 })
 
     // Decorate whenever documents are opened or changed
     debouncedDecorate(vscode.window.visibleTextEditors)
